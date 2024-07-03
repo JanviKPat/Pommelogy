@@ -1,0 +1,111 @@
+.signup-container {
+  background-image: url('../../../assets/apple1.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.signup-form {
+  background: rgba(35, 35, 35, 0.8);
+  padding: 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 500px;
+}
+
+.signup-form .form-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 3%;
+  margin-bottom: 1%;
+}
+
+.signup-form .input-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.signup-form .input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-40%);
+  color: #333;
+}
+
+.signup-form .eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-30%) translateX(-10%);
+  color: #333;
+  cursor: pointer;
+}
+
+.signup-form .form-input input {
+  width: 100%;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 2.1rem;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1%;
+}
+
+.signup-form input::placeholder {
+  color: #333;
+  font-size: medium;
+}
+
+.signup-form h1 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.signup-form h6 {
+  font-weight: lighter;
+}
+
+.signup-form h6 a {
+  color: #fff;
+}
+
+.signup-form button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  color: #333;
+  border: none;
+  border-radius: 12px;
+  font-size: large;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signup-form button:hover {
+  background: #fff;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .signup-form {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
