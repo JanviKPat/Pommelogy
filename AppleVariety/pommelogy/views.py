@@ -7,6 +7,7 @@ from .models import AppleVariety, CustomUser, ImageIdentify
 from rest_framework.decorators import action
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 import numpy as np
+from rest_framework.response import Response
 
 import os
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
@@ -23,6 +24,7 @@ model = keras.Model(inputs=_in, outputs=_out)
 
 # modelpath = f'model.keras'
 model.save(MODEL_PATH)
+# model.add(Dense(10, activation='softmax'))
 
 def load_apple_model():
     try:
@@ -55,44 +57,78 @@ class AppleVarietyViewSet(viewsets.ModelViewSet):
     queryset = AppleVariety.objects.all()
     serializer_class = AppleVarietySerializer
 
+    def retrieve(self, request, *args, **kwargs):
+        variety_id = kwargs.get('pk')
+        queryset = self.get_queryset().filter(variety_id=variety_id)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 class ImageUploadViewSet(viewsets.ModelViewSet):
     queryset = ImageIdentify.objects.all()
     serializer_class = ImageUploadSerializer
-    #
-    # def perform_create(self, serializer):
-    #     serializer.save(user=self.request.user)
+
+    @action(detail=False, methods=['post'])
+    def predict_apple(self, request, *args, **kwargs):
+        # if not self.get_object():
+        #     pass
+        class_names = ['Variety1', 'Variety2', 'Variety3', 'Variety4', 'Variety5',
+                       'Variety6', 'Variety7', 'Variety8', 'Variety9', 'Variety10']
+
+
+        if 'image' not in request.FILES:
+            return Response({'error': 'No image provided'}, status=400)
+
+        image_file = request.FILES['image']
+        expected_img_size = (8, 8)
+        img_size = (256, 256)
+
+        # Save the image to a temporary location if necessary
+        from PIL import Image
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            for chunk in image_file.chunks():
+                temp_file.write(chunk)
+            temp_file.flush()
+            temp_file.seek(0)
+            image_path = temp_file.name
 
         # Load and preprocess the image
-    # def preprocess_image(image_path):
-    #     img_size = (256, 256)
-    #     img = load_img(image_path, target_size=img_size)  # Load the image
-    #     img_array = img_to_array(img)  # Convert the image to an array
-    #     img_array = np.expand_dims(img_array, axis=0)  # Add an extra dimension
-    #     img_array = img_array / 255.0  # Normalize the image to the [0, 1] range
-    #     return img_array
-    @action(detail=True, methods=['post'])
-    def predict(self, request, pk=None):
-        # pass
-        print("11111111111111111111111111111\n\n\n\n\n\n\n")
-        image_upload = self.get_object()
-        image_path = image_upload.image.path
-        # img = Image.open(image_path)
+        img = load_img(image_path, target_size=expected_img_size)
+        img_array = img_to_array(img)
+        img_array = np.expand_dims(img_array, axis=0)
+        preprocessed_img = img_array / 255.0
 
-        img_size = (256, 256)
-        img = load_img(image_path, target_size=img_size)  # Load the image
-        img_array = img_to_array(img)  # Convert the image to an array
-        img_array = np.expand_dims(img_array, axis=0)  # Add an extra dimension
-        predictions = img_array / 255.0  # Normalize the image to the [0, 1] range
+        try:
+            predictions = model.predict(preprocessed_img)
+            # print(predictions)
+            # breakpoint()
+        except Exception as e:
+            return Response({'error': 'Not an apple'})
 
-
-        # Preprocess the uploaded image
-        # preprocessed_img = preprocess_image(image_path)
-        # predictions = model.predict(preprocessed_img)
-        print(model)
-        print("-" * 20)
-        # Get the predicted class
-        print(predictions)
-        predicted_class = np.argmax(predictions[0])
+        predicted_class_idx = np.argmax(predictions[0])
         confidence = np.max(predictions[0])
+        print(predicted_class_idx)
+        # if predicted_class_idx < len(class_names):
+        #     predicted_class = class_names[predicted_class_idx]
+        # else:
+        #     return Response({'error': 'Predicted class index out of range'}, status=400)
 
-        print(f"Predicted Class: {predicted_class}, Confidence: {confidence:.2f}")
+            # Clean up temporary file
+        predicted_class = "red_yellow"
+        try:
+            apple_variety = AppleVariety.objects.get(variety_id=predicted_class)
+        except AppleVariety.DoesNotExist:
+            return Response({'error': 'Apple variety not found'}, status=404)
+
+        temp_file.close()
+
+        # Assuming you have a serializer for AppleVariety
+        from .serializers import AppleVarietySerializer
+        apple_variety_serializer = AppleVarietySerializer(apple_variety)
+
+        return Response({
+            'predicted_class': predicted_class,
+            'confidence': float(confidence),
+            'apple_variety': apple_variety_serializer.data
+        })
