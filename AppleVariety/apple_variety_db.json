@@ -1,0 +1,242 @@
+[
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 1,
+        "fields": {
+            "name": "Apple",
+            "variety_id": "apple",
+            "description": "Generic term for all apple varieties.",
+            "visual_characteristics": "Varies by specific variety.",
+            "taste_profile": "Varies by specific variety.",
+            "culinary_uses": "Varies by specific variety."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 2,
+        "fields": {
+            "name": "Braeburn",
+            "variety_id": "braeburn",
+            "description": "A crisp, tangy apple with a sweet-tart flavor.",
+            "visual_characteristics": "Red and green skin, firm flesh.",
+            "taste_profile": "Sweet-tart flavor.",
+            "culinary_uses": "Good for baking, salads, and eating fresh."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 3,
+        "fields": {
+            "name": "Crimson Snow",
+            "variety_id": "crimson_snow",
+            "description": "A sweet and crisp apple variety with a deep red skin.",
+            "visual_characteristics": "Deep red skin, firm and juicy flesh.",
+            "taste_profile": "Sweet and crisp.",
+            "culinary_uses": "Ideal for snacking and salads."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 4,
+        "fields": {
+            "name": "Fuji",
+            "variety_id": "fuji",
+            "description": "A very sweet and crisp apple, great for fresh eating.",
+            "visual_characteristics": "Reddish-pink skin, very firm flesh.",
+            "taste_profile": "Very sweet and crisp.",
+            "culinary_uses": "Best for eating fresh, also good in salads."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 5,
+        "fields": {
+            "name": "Gala",
+            "variety_id": "gala",
+            "description": "A mild, sweet apple with a crisp texture.",
+            "visual_characteristics": "Yellow-orange skin with red stripes, crisp flesh.",
+            "taste_profile": "Mild and sweet.",
+            "culinary_uses": "Good for eating fresh, salads, and sauces."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 6,
+        "fields": {
+            "name": "Golden 1",
+            "variety_id": "golden_1",
+            "description": "A variation of the Golden Delicious apple.",
+            "visual_characteristics": "Yellow skin, firm flesh.",
+            "taste_profile": "Sweet and mild.",
+            "culinary_uses": "Great for baking, cooking, and eating fresh."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 7,
+        "fields": {
+            "name": "Golden 2",
+            "variety_id": "golden_2",
+            "description": "Another variation of the Golden Delicious apple.",
+            "visual_characteristics": "Yellow skin, firm flesh.",
+            "taste_profile": "Sweet and mild.",
+            "culinary_uses": "Ideal for baking, cooking, and eating fresh."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 8,
+        "fields": {
+            "name": "Golden Delicious",
+            "variety_id": "golden_delicious",
+            "description": "A classic sweet apple, great for many uses.",
+            "visual_characteristics": "Golden-yellow skin, firm and juicy flesh.",
+            "taste_profile": "Sweet and mild.",
+            "culinary_uses": "Perfect for baking, cooking, and fresh eating."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 9,
+        "fields": {
+            "name": "Granny Smith",
+            "variety_id": "granny_smith",
+            "description": "A tart, crisp apple, often used in baking.",
+            "visual_characteristics": "Bright green skin, firm flesh.",
+            "taste_profile": "Tart and crisp.",
+            "culinary_uses": "Excellent for baking, pies, and salads."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 10,
+        "fields": {
+            "name": "Gravensteins Banks",
+            "variety_id": "gravensteins_banks",
+            "description": "A type of Gravenstein apple known for its unique flavor.",
+            "visual_characteristics": "Varies, typically red or yellow skin with green streaks.",
+            "taste_profile": "Sweet-tart flavor.",
+            "culinary_uses": "Good for eating fresh and cooking."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 11,
+        "fields": {
+            "name": "Hit",
+            "variety_id": "hit",
+            "description": "A lesser-known apple variety with a unique taste.",
+            "visual_characteristics": "Varies.",
+            "taste_profile": "Unique flavor.",
+            "culinary_uses": "Varies."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 12,
+        "fields": {
+            "name": "Honey Crisp",
+            "variety_id": "honey_crisp",
+            "description": "A very popular apple known for its crisp texture and sweet-tart flavor.",
+            "visual_characteristics": "Red and yellow skin, very crisp flesh.",
+            "taste_profile": "Sweet-tart and very crisp.",
+            "culinary_uses": "Great for eating fresh, salads, and sauces."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 13,
+        "fields": {
+            "name": "McIntosh",
+            "variety_id": "mcintosh",
+            "description": "A classic apple with a soft texture and tart flavor.",
+            "visual_characteristics": "Red and green skin, softer flesh.",
+            "taste_profile": "Tart and tender.",
+            "culinary_uses": "Best for sauces and cider."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 14,
+        "fields": {
+            "name": "Pink Lady",
+            "variety_id": "pink_lady",
+            "description": "A crisp, tart apple with a pinkish skin.",
+            "visual_characteristics": "Pinkish skin, very firm flesh.",
+            "taste_profile": "Tart and crisp.",
+            "culinary_uses": "Ideal for eating fresh and baking."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 15,
+        "fields": {
+            "name": "Red 1",
+            "variety_id": "red_1",
+            "description": "A type of red apple.",
+            "visual_characteristics": "Red skin, firm flesh.",
+            "taste_profile": "Varies.",
+            "culinary_uses": "Varies."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 16,
+        "fields": {
+            "name": "Red 2",
+            "variety_id": "red_2",
+            "description": "Another type of red apple.",
+            "visual_characteristics": "Red skin, firm flesh.",
+            "taste_profile": "Varies.",
+            "culinary_uses": "Varies."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 17,
+        "fields": {
+            "name": "Red 3",
+            "variety_id": "red_3",
+            "description": "Yet another type of red apple.",
+            "visual_characteristics": "Red skin, firm flesh.",
+            "taste_profile": "Varies.",
+            "culinary_uses": "Varies."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 18,
+        "fields": {
+            "name": "Red Delicious",
+            "variety_id": "red_delicious",
+            "description": "A classic apple known for its deep red color and sweet taste.",
+            "visual_characteristics": "Deep red skin, firm flesh.",
+            "taste_profile": "Mild and sweet.",
+            "culinary_uses": "Best for eating fresh."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 19,
+        "fields": {
+            "name": "Red Yellow",
+            "variety_id": "red_yellow",
+            "description": "An apple variety with a mix of red and yellow skin.",
+            "visual_characteristics": "Red and yellow skin, firm flesh.",
+            "taste_profile": "Varies.",
+            "culinary_uses": "Varies."
+        }
+    },
+    {
+        "model": "pommelogy.AppleVariety",
+        "pk": 20,
+        "fields": {
+            "name": "Ruby",
+            "variety_id": "ruby",
+            "description": "An apple variety known for its rich red color and sweet taste.",
+            "visual_characteristics": "Rich red skin, firm flesh.",
+            "taste_profile": "Sweet.",
+            "culinary_uses": "Good for eating fresh and baking."
+        }
+    }
+]
